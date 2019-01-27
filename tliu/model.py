@@ -22,4 +22,4 @@ class Windpy(Base):
     def __repr__(self):
         return "<Host(daying='%s')>".format(self.daying)
 wind = Windpy()
-
+print("第二次开发“)
