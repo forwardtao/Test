@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tliublog</title>
+    <link rel="stylesheet" id="bootstrap-css" href="{% static "css/bootstrap.min.css" %}" type="text/css", media="all"/>
+    <link rel="stylesheet" id="footawesome-css" href="{% static "css/font-awesome.min.css" %}" type="text/css" media="all"/>
+    <link rel="stylesheet" id="style-css" href="{% static "css/style.css" %}" type="text/css" media="all"/>
+    <link rel="stylesheet" id="raxus-css" href="{% static "css/raxus.css" %}" type="text/css" media="all"/>
+    <link rel="stylesheet" id="open-social-css" href="{% static "css/os.css" %}" type="text/css" media="all"/>
+</head>
+<body>
+<nav class="nav f1">
+    <ul id="fix-list" class="fix-list clearfix">
+        <li id="menu-item-1" class="menu-item"><a href="/">首页</a> </li>
+{#        <li id="menu-item-2" class="menu-item"><a href="list-1.html">打野</a></li>#}
+{#        <li id="menu-item-3" class="menu-item"><a href="list-2.html">射手</a></li>#}
+{#        <li id="menu-item-4" class="menu-item"><a href="list-3.html">刺客</a></li>#}
+{#        <li id="menu-item-5" class="menu-item"><a href="list-4.html">战士</a></li>#}
+        {% for category in allcategory %}
+            <li id="menu-item-1" class="menu-item"><a href="{% url 'index' %}list-{{ category.id }}.html">{{ category.name }}</a></li>
+        {% endfor %}
+        <li id="menu-item-6" class="menu-item"><a href="/about/">关于博客</a></li>
+    </ul>
+</nav>
+{% block content %}
+{% endblock %}+-
+
+<footer class="footer">
+    <div class="copyright"> © 2010- 2018 · All Rights Reserved
+        · <a href="https://www.tliu.blog.com">tliublog</a>
+    </div>
+</footer>
+<script src="{% static "js/bundle.js" %}"></script>
+<script type="text/javascript" src="{% static "js/view-history.js" %}"></script>
+<script type='text/javascript' src="{% static "js/push.js" %}"></script>
+<script type='text/javascript' src='{% static "js/jquery.min.js" %}'></script>
+<script type='text/javascript' src='{% static "js/bootstrap.min.js" %}'></script>
+<script type='text/javascript' src='{% static "js/raxus-slider.min.js" %}'></script>
+<script type='text/javascript' src='{% static "js/loader.js" %}'></script>
+<script type='text/javascript' src='{% static "js/bj-lazy-load.min.js" %}'></script>
+<script type='text/javascript' src='{% static "js/os.js" %}'></script>
+</body>
+</html>

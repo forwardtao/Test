@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tliublog</title>
+</head>
+<body>
+{% extends "tliublog/base.html" %}
+{% block content %}
+<div>
+    <ul>
+        <h4>所有英雄：</h4>
+        {% for article in allarticle  %}
+            <li>
+                标题：{{ article.title }}<br />
+                英雄原画：{{ article.img }}<br />
+            </li>
+
+        {% endfor %}
+    </ul>
+
+    </ul>
+</div>
+<div>
+    <ul>
+        {% for b in banner %}
+        <li class="slide fix-width">
+            <a href="{{ b.link_url }}"title="{{ b.text_info }}">
+                <img src="{% url 'index' %}media/{{ b.img }}"srcset="{% url 'index' %}media/{{ b.img }}"alt="{{ b.text_info }}"class="wp-post-image"width="370" height="290"/></a>
+            <span class="text ani-left"><strong>{{ b.text_info }}</strong></span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    {% for t in tui %}
+    <div class="caption">
+    <h4><a href="{% url 'index' %}show-{{ t.id }}.html" title="{{ t.title }}"
+               rel="bookmark">{{ t.title }}</a></h4>
+    <p>{{ t.excerpt|truncatechars:"80" }}</p>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}
+</body>
+</html>
